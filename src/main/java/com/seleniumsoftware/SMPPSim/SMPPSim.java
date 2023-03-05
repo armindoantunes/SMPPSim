@@ -51,6 +51,7 @@ import com.seleniumsoftware.SMPPSim.util.Utilities;
 import java.io.*;
 import java.net.*;
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 import org.slf4j.Logger;
 //import java.util.logging.*;
 import org.slf4j.LoggerFactory;
@@ -209,20 +210,9 @@ public class SMPPSim
         }
     }
 
-//    private static void showUsage()
-//    {
-//        System.out.println("Invalid or missing arguments:");
-//        System.out.println("Usage:");
-//        System.out.println("java -Djava.util.logging.config.file=<logging.properties file> com/seleniumsoftware/SMPPSim/SMPPSim <properties file>");
-//        System.out.println("");
-//        System.out.println("Example:");
-//        System.out.println("java -Djava.util.logging.config.file=conf\\logging.properties com/seleniumsoftware/SMPPSim/SMPPSim conf\\props.win");
-//        System.out.println("");
-//        System.out.println("Run terminated");
-//    }
     private static void showUsage()
     {
-        System.out.println("Invalide or missing arguments");
+        System.out.println("Invalid or missing arguments");
         System.out.println("There are 2 arguments:  logback.xml file path and smppsim.props");
         System.out.println("java -jar smppsim.jar conf/logback.xml conf/smppsim.props");
     }

@@ -103,11 +103,11 @@ public class DataSMResp extends Response implements Marshaller, Demarshaller {
 	}
   
   public boolean hasOptionnal(short aTag) {
-    return optionalsByTag.containsKey(new Short(aTag));
+    return optionalsByTag.containsKey(Short.valueOf(aTag));
   }
   
   public Tlv getOptionnal(short aTag) {
-    return optionalsByTag.get(new Short(aTag));
+    return optionalsByTag.get(Short.valueOf(aTag));
   }
   
   public List<Short> getOptionnalTags() {
@@ -122,7 +122,7 @@ public class DataSMResp extends Response implements Marshaller, Demarshaller {
 	}
   
   public void setOptionnal(Tlv opt) {
-    optionalsByTag.put(new Short(opt.getTag()), opt);
+    optionalsByTag.put(Short.valueOf(opt.getTag()), opt);
   }
 	
 	public String toString() {

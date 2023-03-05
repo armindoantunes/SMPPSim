@@ -4,7 +4,6 @@ import junit.framework.*;
 
 import java.io.IOException;
 import java.net.*;
-import java.util.logging.*;
 import com.logica.smpp.*;
 import com.logica.smpp.pdu.*;
 import com.logica.smpp.util.*;
@@ -56,14 +55,14 @@ public class SmppsimSubmitSmTests extends TestCase {
 			logger.error(
 				"Exception whilst setting up or executing bind transmitter. "
 					+ e.getMessage());
-			fail(
+			Assert.fail(
 				"Exception whilst setting up or executing bind transmitter. "
 					+ e.getMessage());
 			throw new BindTransmitterException(
 				"Exception whilst setting up or executing bind transmitter. "
 					+ e.getMessage());
 		}
-		assertEquals(
+		Assert.assertEquals(
 			"BindTransmitter failed: response was not ESME_ROK",
 			Data.ESME_ROK,
 			resp.getCommandStatus());
@@ -83,7 +82,7 @@ public class SmppsimSubmitSmTests extends TestCase {
 			request.assignSequenceNumber(true);
 			response = session.submit(request);
 			logger.info("Message submitted....");
-			assertEquals(
+			Assert.assertEquals(
 				"SUBMIT_SM failed: response was not ESME_ROK",
 				Data.ESME_ROK,
 				response.getCommandStatus());
@@ -132,14 +131,14 @@ public class SmppsimSubmitSmTests extends TestCase {
 			logger.error(
 				"Exception whilst setting up or executing bind transmitter. "
 					+ e.getMessage());
-			fail(
+			Assert.fail(
 				"Exception whilst setting up or executing bind transmitter. "
 					+ e.getMessage());
 			throw new BindTransmitterException(
 				"Exception whilst setting up or executing bind transmitter. "
 					+ e.getMessage());
 		}
-		assertEquals(
+		Assert.assertEquals(
 			"BindTransmitter failed: response was not ESME_ROK",
 			Data.ESME_ROK,
 			resp.getCommandStatus());
@@ -162,7 +161,7 @@ public class SmppsimSubmitSmTests extends TestCase {
 
 			request.assignSequenceNumber(true);
 			response = session.submit(request);
-			assertEquals(
+			Assert.assertEquals(
 				"SUBMIT_SM response incorrect: response was not ESME_RINVDSTADR",
 				Data.ESME_RINVDSTADR,
 				response.getCommandStatus());
@@ -191,7 +190,7 @@ public class SmppsimSubmitSmTests extends TestCase {
 
 			request.assignSequenceNumber(true);
 			response = session.submit(request);
-			assertEquals(
+			Assert.assertEquals(
 				"SUBMIT_SM response incorrect: response was not ESME_ROK",
 				Data.ESME_ROK,
 				response.getCommandStatus());
@@ -235,14 +234,14 @@ public class SmppsimSubmitSmTests extends TestCase {
 			logger.error(
 				"Exception whilst setting up or executing bind transceiver. "
 					+ e.getMessage());
-			fail(
+			Assert.fail(
 				"Exception whilst setting up or executing bind transceiver. "
 					+ e.getMessage());
 			throw new BindTransmitterException(
 				"Exception whilst setting up or executing bind transceiver. "
 					+ e.getMessage());
 		}
-		assertEquals(
+		Assert.assertEquals(
 			"BindTransmitter failed: response was not ESME_ROK",
 			Data.ESME_ROK,
 			resp.getCommandStatus());
@@ -264,7 +263,7 @@ public class SmppsimSubmitSmTests extends TestCase {
 
 			request.assignSequenceNumber(true);
 			response = session.submit(request);
-			assertEquals(
+			Assert.assertEquals(
 				"SUBMIT_SM failed: response was not ESME_ROK",
 				Data.ESME_ROK,
 				response.getCommandStatus());
@@ -303,24 +302,24 @@ public class SmppsimSubmitSmTests extends TestCase {
 								"Unexpected PDU of type: "
 									+ pdu.getClass().getName()
 									+ " received - discarding");
-							fail(
+							Assert.fail(
 								"Unexpected PDU type received"
 									+ pdu.getClass().getName());
 						}
 					}
 				}
 			} catch (SocketException e) {
-				fail("Connection has dropped for some reason");
+				Assert.fail("Connection has dropped for some reason");
 			} catch (IOException ioe) {
-				fail("IOException: " + ioe.getMessage());
+				Assert.fail("IOException: " + ioe.getMessage());
 			} catch (NotSynchronousException nse) {
-				fail("NotSynchronousException: " + nse.getMessage());
+				Assert.fail("NotSynchronousException: " + nse.getMessage());
 			} catch (PDUException pdue) {
-				fail("PDUException: " + pdue.getMessage());
+				Assert.fail("PDUException: " + pdue.getMessage());
 			} catch (TimeoutException toe) {
-				fail("TimeoutException: " + toe.getMessage());
+				Assert.fail("TimeoutException: " + toe.getMessage());
 			} catch (WrongSessionStateException wsse) {
-				fail("WrongSessionStateException: " + wsse.getMessage());
+				Assert.fail("WrongSessionStateException: " + wsse.getMessage());
 			}
 		}
 
@@ -356,14 +355,14 @@ public class SmppsimSubmitSmTests extends TestCase {
 			logger.error(
 				"Exception whilst setting up or executing bind transmitter. "
 					+ e.getMessage());
-			fail(
+			Assert.fail(
 				"Exception whilst setting up or executing bind transmitter. "
 					+ e.getMessage());
 			throw new BindTransmitterException(
 				"Exception whilst setting up or executing bind transmitter. "
 					+ e.getMessage());
 		}
-		assertEquals(
+		Assert.assertEquals(
 			"BindTransmitter failed: response was not ESME_ROK",
 			Data.ESME_ROK,
 			resp.getCommandStatus());
@@ -383,7 +382,7 @@ public class SmppsimSubmitSmTests extends TestCase {
 			request.assignSequenceNumber(true);
 			response = session.submit(request);
 			logger.info("Message submitted....");
-			assertEquals(
+			Assert.assertEquals(
 				"SUBMIT_SM failed: response was not ESME_ROK",
 				Data.ESME_ROK,
 				response.getCommandStatus());
@@ -426,14 +425,14 @@ public class SmppsimSubmitSmTests extends TestCase {
 			logger.error(
 				"Exception whilst setting up or executing bind transmitter. "
 					+ e.getMessage());
-			fail(
+			Assert.fail(
 				"Exception whilst setting up or executing bind transmitter. "
 					+ e.getMessage());
 			throw new BindTransmitterException(
 				"Exception whilst setting up or executing bind transmitter. "
 					+ e.getMessage());
 		}
-		assertEquals(
+		Assert.assertEquals(
 			"BindTransmitter failed: response was not ESME_ROK",
 			Data.ESME_ROK,
 			resp.getCommandStatus());
@@ -453,7 +452,7 @@ public class SmppsimSubmitSmTests extends TestCase {
 			request.assignSequenceNumber(true);
 			response = session.submit(request);
 			logger.info("Message submitted....");
-			assertEquals(
+			Assert.assertEquals(
 				"SUBMIT_SM failed: response was not ESME_RINVDSTADR",
 				Data.ESME_RINVDSTADR,
 				response.getCommandStatus());
@@ -496,14 +495,14 @@ public class SmppsimSubmitSmTests extends TestCase {
 			logger.error(
 				"Exception whilst setting up or executing bind transmitter. "
 					+ e.getMessage());
-			fail(
+			Assert.fail(
 				"Exception whilst setting up or executing bind transmitter. "
 					+ e.getMessage());
 			throw new BindTransmitterException(
 				"Exception whilst setting up or executing bind transmitter. "
 					+ e.getMessage());
 		}
-		assertEquals(
+		Assert.assertEquals(
 			"BindTransmitter failed: response was not ESME_ROK",
 			Data.ESME_ROK,
 			resp.getCommandStatus());
@@ -594,7 +593,7 @@ public class SmppsimSubmitSmTests extends TestCase {
 			request.assignSequenceNumber(true);
 			response = session.submit(request);
 			logger.info("Message submitted....");
-			assertEquals(
+			Assert.assertEquals(
 				"SUBMIT_SM failed: response was not ESME_ROK",
 				Data.ESME_ROK,
 				response.getCommandStatus());

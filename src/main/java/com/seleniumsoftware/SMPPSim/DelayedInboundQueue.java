@@ -74,11 +74,11 @@ public class DelayedInboundQueue implements Runnable {
 					logger.debug("DelayedInboundQueue: adding object to queue<"
 							+ pdu.toString() + ">");
 					delayed_queue_pdus.add(pdu);
-					delayed_queue_attempts.add(new Integer(0));
+					delayed_queue_attempts.add(Integer.valueOf(0));
 				} else {
 					int i = delayed_queue_pdus.indexOf(pdu);
 					if (i > -1) {
-						int a = delayed_queue_attempts.get(i).intValue();
+						int a = delayed_queue_attempts.get(i);
 						a++;
 						delayed_queue_attempts.set(i,a);
 						logger.debug("DelayedInboundQueue: incremented retry count to "+a+" for "+"<"
@@ -137,7 +137,7 @@ public class DelayedInboundQueue implements Runnable {
 								iqueue.addMessage(mo);
 								int attempts = delayed_queue_attempts.get(i)
 										.intValue() + 1;
-								delayed_queue_attempts.set(i, new Integer(
+								delayed_queue_attempts.set(i, Integer.valueOf(
 										attempts));
 								logger.debug("Requesting retry delivery of message "+mo.getSeq_no());
 							} else {

@@ -39,14 +39,14 @@ public class SmppsimBindTests extends TestCase {
 			logger.warning(
 				"Exception whilst setting up or executing bind transmitter. "
 					+ e.getMessage());
-			fail(
+			Assert.fail(
 				"Exception whilst setting up or executing bind transmitter. "
 					+ e.getMessage());
 			throw new BindTransmitterException(
 				"Exception whilst setting up or executing bind transmitter. "
 					+ e.getMessage());
 		}
-		assertEquals(
+		Assert.assertEquals(
 			"BindTransmitter failed: response was not ESME_ROK",
 			Data.ESME_ROK,
 			resp.getCommandStatus());
@@ -79,14 +79,14 @@ public class SmppsimBindTests extends TestCase {
 			logger.warning(
 				"Exception whilst setting up or executing bind transmitter. "
 					+ e.getMessage());
-			fail(
+			Assert.fail(
 				"Exception whilst setting up or executing bind transmitter. "
 					+ e.getMessage());
 			throw new BindTransmitterException(
 				"Exception whilst setting up or executing bind transmitter. "
 					+ e.getMessage());
 		}
-		assertEquals(
+		Assert.assertEquals(
 			"BindTransmitter failed: response was not ESME_ROK",
 			Data.ESME_ROK,
 			resp.getCommandStatus());
@@ -95,13 +95,13 @@ public class SmppsimBindTests extends TestCase {
 		// Now on to the unbind test
 
 		try {
-			assertTrue(
+			Assert.assertTrue(
 				"BindTransmitter test must have failed so cannot unbind",
 				txBound);
 			logger.info("Connection is currently=" + conn);
 			UnbindResp response = session.unbind();
 			logger.info("Connection after unbind is=" + conn);
-			assertEquals(
+			Assert.assertEquals(
 				"Unbind failed: response was not ESME_ROK",
 				Data.ESME_ROK,
 				response.getCommandStatus());
@@ -109,7 +109,7 @@ public class SmppsimBindTests extends TestCase {
 			logger.log(Level.WARNING, "Exception: " + e.getMessage(), e);
 			logger.warning(
 				"Unbind operation failed for TX session. " + e.getMessage());
-			fail("Failed to unbind transmitter session " + e.getMessage());
+			Assert.fail("Failed to unbind transmitter session " + e.getMessage());
 		}
 	}
 
@@ -139,7 +139,7 @@ public class SmppsimBindTests extends TestCase {
 			logger.warning(
 				"Exception whilst setting up or executing bind transmitter. "
 					+ e.getMessage());
-			fail(
+			Assert.fail(
 				"Exception whilst setting up or executing bind transmitter. "
 					+ e.getMessage());
 			throw new BindTransmitterException(
@@ -147,7 +147,7 @@ public class SmppsimBindTests extends TestCase {
 					+ e.getMessage());
 		}
 		// Response object is null!
-		assertEquals(
+		Assert.assertEquals(
 			"BindTransmitter authentication should have failed: response was not ESME_RINVSYSID",
 			Data.ESME_RINVSYSID,
 			resp.getCommandStatus());
@@ -191,7 +191,7 @@ public class SmppsimBindTests extends TestCase {
 			logger.warning(
 				"Exception whilst setting up or executing bind transmitter. "
 					+ e.getMessage());
-			fail(
+			Assert.fail(
 				"Exception whilst setting up or executing bind transmitter. "
 					+ e.getMessage());
 			throw new BindTransmitterException(
@@ -199,7 +199,7 @@ public class SmppsimBindTests extends TestCase {
 					+ e.getMessage());
 		}
 		// Response object is null!
-		assertEquals(
+		Assert.assertEquals(
 			"BindTransmitter authentication should have failed: response was not ESME_RINVPASWD",
 			Data.ESME_RINVPASWD,
 			resp.getCommandStatus());
@@ -309,14 +309,14 @@ public class SmppsimBindTests extends TestCase {
 			logger.warning(
 				"Exception whilst setting up or executing bind receiver. "
 					+ e.getMessage());
-			fail(
+			Assert.fail(
 				"Exception whilst setting up or executing bind receiver. "
 					+ e.getMessage());
 			throw new BindReceiverException(
 				"Exception whilst setting up or executing bind receiver. "
 					+ e.getMessage());
 		}
-		assertEquals(
+		Assert.assertEquals(
 			"BindReceiver failed: response was not ESME_ROK",
 			Data.ESME_ROK,
 			resp.getCommandStatus());
@@ -358,7 +358,7 @@ public class SmppsimBindTests extends TestCase {
 			logger.warning(
 				"Exception whilst setting up or executing bind transmitter. "
 					+ e.getMessage());
-			fail(
+			Assert.fail(
 				"Exception whilst setting up or executing bind transmitter. "
 					+ e.getMessage());
 			throw new BindReceiverException(
@@ -366,7 +366,7 @@ public class SmppsimBindTests extends TestCase {
 					+ e.getMessage());
 		}
 		// Response object is null!
-		assertEquals(
+		Assert.assertEquals(
 			"BindReceiver authentication should have failed: response was not ESME_RINVSYSID",
 			Data.ESME_RINVSYSID,
 			resp.getCommandStatus());
@@ -408,7 +408,7 @@ public class SmppsimBindTests extends TestCase {
 			logger.warning(
 				"Exception whilst setting up or executing bind receiver. "
 					+ e.getMessage());
-			fail(
+			Assert.fail(
 				"Exception whilst setting up or executing bind receiver. "
 					+ e.getMessage());
 			throw new BindReceiverException(
@@ -416,7 +416,7 @@ public class SmppsimBindTests extends TestCase {
 					+ e.getMessage());
 		}
 		// Response object is null!
-		assertEquals(
+		Assert.assertEquals(
 			"BindReceiver authentication should have failed: response was not ESME_RINVPASWD",
 			Data.ESME_RINVPASWD,
 			resp.getCommandStatus());
@@ -450,14 +450,14 @@ public class SmppsimBindTests extends TestCase {
 			logger.warning(
 				"Exception whilst setting up or executing bind Transceiver. "
 					+ e.getMessage());
-			fail(
+			Assert.fail(
 				"Exception whilst setting up or executing bind Transceiver. "
 					+ e.getMessage());
 			throw new BindTransceiverException(
 				"Exception whilst setting up or executing bind Transceiver. "
 					+ e.getMessage());
 		}
-		assertEquals(
+		Assert.assertEquals(
 			"BindTransceiver failed: response was not ESME_ROK",
 			Data.ESME_ROK,
 			resp.getCommandStatus());
@@ -499,7 +499,7 @@ public class SmppsimBindTests extends TestCase {
 			logger.warning(
 				"Exception whilst setting up or executing bind transceiver. "
 					+ e.getMessage());
-			fail(
+			Assert.fail(
 				"Exception whilst setting up or executing bind transceiver. "
 					+ e.getMessage());
 			throw new BindTransceiverException(
@@ -507,7 +507,7 @@ public class SmppsimBindTests extends TestCase {
 					+ e.getMessage());
 		}
 		// Response object is null!
-		assertEquals(
+		Assert.assertEquals(
 			"BindTranceiver authentication should have failed: response was not ESME_RINVSYSID",
 			Data.ESME_RINVSYSID,
 			resp.getCommandStatus());
@@ -548,7 +548,7 @@ public class SmppsimBindTests extends TestCase {
 			logger.warning(
 				"Exception whilst setting up or executing bind transceiver. "
 					+ e.getMessage());
-			fail(
+			Assert.fail(
 				"Exception whilst setting up or executing bind transceiver. "
 					+ e.getMessage());
 			throw new BindTransceiverException(
@@ -556,7 +556,7 @@ public class SmppsimBindTests extends TestCase {
 					+ e.getMessage());
 		}
 		// Response object is null!
-		assertEquals(
+		Assert.assertEquals(
 			"BindTransceiver authentication should have failed: response was not ESME_RINVPASWD",
 			Data.ESME_RINVPASWD,
 			resp.getCommandStatus());

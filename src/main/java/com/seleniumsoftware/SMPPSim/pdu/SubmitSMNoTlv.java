@@ -336,7 +336,7 @@ public class SubmitSMNoTlv extends Request implements Demarshaller {
 	}
 
 	/**
-	 * @param string
+	 * @param msg
 	 */
 	public void setShort_message(byte[] msg) {
 		short_message = msg;

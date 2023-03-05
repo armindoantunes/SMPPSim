@@ -3,7 +3,6 @@ import tests.exceptions.*;
 import junit.framework.*;
 
 import java.net.*;
-import java.util.logging.*;
 import com.logica.smpp.*;
 import com.logica.smpp.pdu.*;
 import org.slf4j.LoggerFactory;
@@ -60,14 +59,14 @@ public class SmppsimCancelSmTests extends TestCase {
 			logger.error(
 				"Exception whilst setting up or executing bind transmitter. "
 					+ e.getMessage());
-			fail(
+			Assert.fail(
 				"Exception whilst setting up or executing bind transmitter. "
 					+ e.getMessage());
 			throw new BindTransmitterException(
 				"Exception whilst setting up or executing bind transmitter. "
 					+ e.getMessage());
 		}
-		assertEquals(
+		Assert.assertEquals(
 			"BindTransmitter failed: response was not ESME_ROK",
 			Data.ESME_ROK,
 			resp.getCommandStatus());
@@ -90,7 +89,7 @@ public class SmppsimCancelSmTests extends TestCase {
 			request.assignSequenceNumber(true);
 			response = session.submit(request);
 			messageid = response.getMessageId();
-			assertEquals(
+			Assert.assertEquals(
 				"SUBMIT_SM failed: response was not ESME_ROK",
 				Data.ESME_ROK,
 				response.getCommandStatus());
@@ -114,7 +113,7 @@ public class SmppsimCancelSmTests extends TestCase {
 			// send the request
 			response = session.query(request);
 			messageid = response.getMessageId();
-			assertEquals(
+			Assert.assertEquals(
 				"QUERY_SM failed: response was not ESME_ROK",
 				Data.ESME_ROK,
 				response.getCommandStatus());
@@ -139,7 +138,7 @@ public class SmppsimCancelSmTests extends TestCase {
 
 			// send the request
 			response = session.cancel(request);
-			assertEquals(
+			Assert.assertEquals(
 				"CANCEL_SM failed: response was not ESME_ROK",
 				Data.ESME_ROK,
 				response.getCommandStatus());
@@ -163,7 +162,7 @@ public class SmppsimCancelSmTests extends TestCase {
 			// send the request
 			response = session.query(request);
 			messageid = response.getMessageId();
-			assertEquals(
+			Assert.assertEquals(
 				"QUERY_SM failed: response was not ESME_RQUERYFAIL",
 				Data.ESME_RQUERYFAIL,
 				response.getCommandStatus());
@@ -214,14 +213,14 @@ public class SmppsimCancelSmTests extends TestCase {
 			logger.error(
 				"Exception whilst setting up or executing bind transmitter. "
 					+ e.getMessage());
-			fail(
+			Assert.fail(
 				"Exception whilst setting up or executing bind transmitter. "
 					+ e.getMessage());
 			throw new BindTransmitterException(
 				"Exception whilst setting up or executing bind transmitter. "
 					+ e.getMessage());
 		}
-		assertEquals(
+		Assert.assertEquals(
 			"BindTransmitter failed: response was not ESME_ROK",
 			Data.ESME_ROK,
 			resp.getCommandStatus());
@@ -247,7 +246,7 @@ public class SmppsimCancelSmTests extends TestCase {
 				request.assignSequenceNumber(true);
 				response = session.submit(request);
 				mids[i] = response.getMessageId();
-				assertEquals(
+				Assert.assertEquals(
 					"SUBMIT_SM failed: response was not ESME_ROK",
 					Data.ESME_ROK,
 					response.getCommandStatus());
@@ -273,7 +272,7 @@ public class SmppsimCancelSmTests extends TestCase {
 				// send the request
 				response = session.query(request);
 				messageid = response.getMessageId();
-				assertEquals(
+				Assert.assertEquals(
 					"QUERY_SM failed: response was not ESME_ROK",
 					Data.ESME_ROK,
 					response.getCommandStatus());
@@ -299,7 +298,7 @@ public class SmppsimCancelSmTests extends TestCase {
 
 			// send the request
 			response = session.cancel(request);
-			assertEquals(
+			Assert.assertEquals(
 				"CANCEL_SM failed: response was not ESME_ROK",
 				Data.ESME_ROK,
 				response.getCommandStatus());
@@ -324,7 +323,7 @@ public class SmppsimCancelSmTests extends TestCase {
 				// send the request
 				response = session.query(request);
 				messageid = response.getMessageId();
-				assertEquals(
+				Assert.assertEquals(
 					"QUERY_SM failed: response was not ESME_RQUERYFAIL",
 					Data.ESME_RQUERYFAIL,
 					response.getCommandStatus());
@@ -376,14 +375,14 @@ public class SmppsimCancelSmTests extends TestCase {
 			logger.error(
 				"Exception whilst setting up or executing bind transmitter. "
 					+ e.getMessage());
-			fail(
+			Assert.fail(
 				"Exception whilst setting up or executing bind transmitter. "
 					+ e.getMessage());
 			throw new BindTransmitterException(
 				"Exception whilst setting up or executing bind transmitter. "
 					+ e.getMessage());
 		}
-		assertEquals(
+		Assert.assertEquals(
 			"BindTransmitter failed: response was not ESME_ROK",
 			Data.ESME_ROK,
 			resp.getCommandStatus());
@@ -409,7 +408,7 @@ public class SmppsimCancelSmTests extends TestCase {
 				request.assignSequenceNumber(true);
 				response = session.submit(request);
 				mids[i] = response.getMessageId();
-				assertEquals(
+				Assert.assertEquals(
 					"SUBMIT_SM failed: response was not ESME_ROK",
 					Data.ESME_ROK,
 					response.getCommandStatus());
@@ -435,7 +434,7 @@ public class SmppsimCancelSmTests extends TestCase {
 				// send the request
 				response = session.query(request);
 				messageid = response.getMessageId();
-				assertEquals(
+				Assert.assertEquals(
 					"QUERY_SM failed: response was not ESME_ROK",
 					Data.ESME_ROK,
 					response.getCommandStatus());
@@ -461,7 +460,7 @@ public class SmppsimCancelSmTests extends TestCase {
 
 			// send the request
 			response = session.cancel(request);
-			assertEquals(
+			Assert.assertEquals(
 				"CANCEL_SM failed: response was not ESME_ROK",
 				Data.ESME_ROK,
 				response.getCommandStatus());
@@ -486,7 +485,7 @@ public class SmppsimCancelSmTests extends TestCase {
 				// send the request
 				response = session.query(request);
 				messageid = response.getMessageId();
-				assertEquals(
+				Assert.assertEquals(
 					"QUERY_SM failed: response was not ESME_RQUERYFAIL",
 					Data.ESME_RQUERYFAIL,
 					response.getCommandStatus());

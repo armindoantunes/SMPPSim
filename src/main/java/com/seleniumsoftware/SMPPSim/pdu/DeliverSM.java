@@ -585,7 +585,7 @@ public class DeliverSM extends Response implements Marshaller, Cloneable {
 	}
 
 	/**
-	 * @param string
+	 * @param msg
 	 */
 	public void setShort_message(byte[] msg) {
 		short_message = msg;

@@ -3,7 +3,6 @@ import tests.exceptions.*;
 import junit.framework.*;
 
 import java.net.*;
-import java.util.logging.*;
 import com.logica.smpp.*;
 import com.logica.smpp.pdu.*;
 import org.slf4j.LoggerFactory;
@@ -82,14 +81,14 @@ public class SmppsimSubmitMultiTests extends TestCase {
 			logger.error(
 				"Exception whilst setting up or executing bind transmitter. "
 					+ e.getMessage());
-			fail(
+			Assert.fail(
 				"Exception whilst setting up or executing bind transmitter. "
 					+ e.getMessage());
 			throw new BindTransmitterException(
 				"Exception whilst setting up or executing bind transmitter. "
 					+ e.getMessage());
 		}
-		assertEquals(
+		Assert.assertEquals(
 			"BindTransmitter failed: response was not ESME_ROK",
 			Data.ESME_ROK,
 			resp.getCommandStatus());
@@ -120,7 +119,7 @@ public class SmppsimSubmitMultiTests extends TestCase {
 			logger.info("Got submit_multi response");
 			messageid = response.getMessageId();
 			logger.info("message_id=" + messageid);
-			assertEquals(
+			Assert.assertEquals(
 				"SUBMIT_MULTI failed: response was not ESME_ROK",
 				Data.ESME_ROK,
 				response.getCommandStatus());
@@ -167,14 +166,14 @@ public class SmppsimSubmitMultiTests extends TestCase {
 			logger.error(
 				"Exception whilst setting up or executing bind transmitter. "
 					+ e.getMessage());
-			fail(
+			Assert.fail(
 				"Exception whilst setting up or executing bind transmitter. "
 					+ e.getMessage());
 			throw new BindTransmitterException(
 				"Exception whilst setting up or executing bind transmitter. "
 					+ e.getMessage());
 		}
-		assertEquals(
+		Assert.assertEquals(
 			"BindTransmitter failed: response was not ESME_ROK",
 			Data.ESME_ROK,
 			resp.getCommandStatus());
@@ -203,18 +202,18 @@ public class SmppsimSubmitMultiTests extends TestCase {
 			response = session.submitMulti(request);
 			logger.info("Got submit_multi response");
 			response.getMessageId();
-			assertEquals(
+			Assert.assertEquals(
 				"SUBMIT_MULTI failed: response was not ESME_ROK",
 				Data.ESME_ROK,
 				response.getCommandStatus());
 			short failures = response.getNoUnsuccess();
-			assertEquals("SUBMIT_MULTI failed: number of failures wrong. ",3,failures);
+			Assert.assertEquals("SUBMIT_MULTI failed: number of failures wrong. ",3,failures);
 			UnsuccessSME u = response.getUnsuccessSME(0);
-			assertEquals("SUBMIT_MULTI failed: first failure address wrong. ","abcdefghijkl",u.getAddress());
+			Assert.assertEquals("SUBMIT_MULTI failed: first failure address wrong. ","abcdefghijkl",u.getAddress());
 			u = response.getUnsuccessSME(1);
-			assertEquals("SUBMIT_MULTI failed: second failure address wrong. ","4477871aa459",u.getAddress());
+			Assert.assertEquals("SUBMIT_MULTI failed: second failure address wrong. ","4477871aa459",u.getAddress());
 			u = response.getUnsuccessSME(2);
-			assertEquals("SUBMIT_MULTI failed: third failure address wrong. ","Z47787123462",u.getAddress());
+			Assert.assertEquals("SUBMIT_MULTI failed: third failure address wrong. ","Z47787123462",u.getAddress());
 		} catch (SocketException se) {
 			logger.error("Connection has dropped");
 			throw se;

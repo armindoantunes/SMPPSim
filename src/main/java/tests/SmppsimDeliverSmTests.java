@@ -4,10 +4,8 @@ import junit.framework.*;
 
 import java.io.IOException;
 import java.net.*;
-import java.util.logging.*;
 import com.logica.smpp.*;
 import com.logica.smpp.pdu.*;
-import com.seleniumsoftware.SMPPSim.SMPPSim;
 import org.slf4j.LoggerFactory;
 
 public class SmppsimDeliverSmTests extends TestCase {
@@ -56,14 +54,14 @@ public class SmppsimDeliverSmTests extends TestCase {
 			logger.error(
 				"Exception whilst setting up or executing bind receiver. "
 					+ e.getMessage());
-			fail(
+			Assert.fail(
 				"Exception whilst setting up or executing bind receiver. "
 					+ e.getMessage());
 			throw new BindReceiverException(
 				"Exception whilst setting up or executing bind receiver. "
 					+ e.getMessage());
 		}
-		assertEquals(
+		Assert.assertEquals(
 			"BindReceiver failed: response was not ESME_ROK",
 			Data.ESME_ROK,
 			resp.getCommandStatus());
@@ -94,24 +92,24 @@ public class SmppsimDeliverSmTests extends TestCase {
 								"Unexpected PDU of type: "
 									+ pdu.getClass().getName()
 									+ " received - discarding");
-							fail(
+							Assert.fail(
 								"Unexpected PDU type received"
 									+ pdu.getClass().getName());
 						}
 					}
 				}
 			} catch (SocketException e) {
-				fail("Connection has dropped for some reason");
+				Assert.fail("Connection has dropped for some reason");
 			} catch (IOException ioe) {
-				fail("IOException: " + ioe.getMessage());
+				Assert.fail("IOException: " + ioe.getMessage());
 			} catch (NotSynchronousException nse) {
-				fail("NotSynchronousException: " + nse.getMessage());
+				Assert.fail("NotSynchronousException: " + nse.getMessage());
 			} catch (PDUException pdue) {
-				fail("PDUException: " + pdue.getMessage());
+				Assert.fail("PDUException: " + pdue.getMessage());
 			} catch (TimeoutException toe) {
-				fail("TimeoutException: " + toe.getMessage());
+				Assert.fail("TimeoutException: " + toe.getMessage());
 			} catch (WrongSessionStateException wsse) {
-				fail("WrongSessionStateException: " + wsse.getMessage());
+				Assert.fail("WrongSessionStateException: " + wsse.getMessage());
 			}
 		}
 		// Now unbind and disconnect ready for the next test

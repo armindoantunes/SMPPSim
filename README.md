@@ -1,7 +1,4 @@
-This repo is for self learn.  
-I modified the original logging to Slf4j logging which helps me for debugging :)
-
-SMPPSim official website tutorial:  
+SMPPSim official website tutorial (no longer available):  
 http://www.seleniumsoftware.com/user-guide.htm#quick
 
 **REQUIRED SOFTWARE:**
@@ -22,3 +19,6 @@ docker run --rm --name smpp-simulator  -p 5555:5555 -p 8989:8989 armindoantunes/
 
 How to change credentials?
 All credential information is in the conf/smppsim.props
+
+**Change log:**
+* Added support for docker
